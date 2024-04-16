@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Reduce</title>
+</head>
+<style>
+    body {
+        background-color: bisque;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      
+      input[type="text"], button {
+        padding: 10px;
+        margin: 5px;
+      }
+      
+      button {
+        background-color: blue;
+        border: none;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      
+      button:hover {
+        background-color: forestgreen;
+      }
+      
+</style>
+<body>
+    <h1>Array Reducer</h1>
+  <input type="text" id="numsInput" placeholder="Enter numbers separated by commas">
+  <input type="text" id="initInput" placeholder="Enter initial value">
+  <input type="text" id="reducerInput" placeholder="Enter reducer function">
+  <button id="calculateBtn">Calculate</button>
+  <div id="result"></div>
+    <script>
+        function customReduce(nums, fn, init) {
+            let val = init;
+            for (let num of nums) {
+              val = fn(val, num);
+            }
+             return val;
+          }
+          
+          document.addEventListener('DOMContentLoaded', function () {
+            const numsInput = document.getElementById('numsInput');
+            const initInput = document.getElementById('initInput');
+            const reducerInput = document.getElementById('reducerInput');
+            const calculateBtn = document.getElementById('calculateBtn');
+            const resultDiv = document.getElementById('result');
+          
+             calculateBtn.addEventListener('click', function () {
+              const nums = numsInput.value.split(',').map(num => parseInt(num.trim()));
+              const init = parseInt(initInput.value.trim());
+              const reducerFn = eval('(' + reducerInput.value + ')');
+          
+              try {
+                const result = customReduce(nums, reducerFn, init);
+                resultDiv.textContent = 'Result: ' + result;
+              } catch (error) {
+                resultDiv.textContent = 'Error: ' + error.message;
+              }
+            });
+          });
+          
+    </script>
+</body>
+</html>

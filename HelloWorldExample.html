@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello world Example</title>
+    <style>
+        body {
+            background-color: bisque;
+            color: black;
+            font-size: 70px;
+            font-weight: 300px;
+            font-family: "Lucida Handwriting", cursive;
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+          }
+          button {
+            padding: 20px 40px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #4CAF50; 
+            border: none;
+            color: white;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+          }
+          
+          button:hover {
+            background-color: #45a049; 
+          }
+          
+          button:active {
+            background-color: #87CEEB; 
+          }
+          
+    </style>
+</head>
+<body>
+    <div id="output"></div>
+    <button onclick="callFunction()">call Function</button>
+
+    <script>
+        function createHelloWorld() {
+            return function() {
+              return "Hello World";
+            };
+          }
+          
+          function callFunction() {
+            const f = createHelloWorld();
+            const outputDiv = document.getElementById("output");
+            outputDiv.textContent = f({}, null, 42);
+          }
+          
+    </script>
+</body>
+</html>

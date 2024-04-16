@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Increment Button</title>
+    <style>
+        body{
+            background-color: bisque;
+            font-size: 30px;
+        }
+        .container {
+            text-align: center;
+            justify-content: center;
+
+            margin-top: 15%;
+          }
+          button {
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color:blue;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+          }
+          button:hover {
+            background-color:forestgreen;
+          }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Increment Counter</h1>
+        <p>Current Count: <div id="count">0</div></p>
+        <button id="incrementBtn">Increment</button>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var count = 0;
+            var countDisplay = document.getElementById('count');
+            var incrementBtn = document.getElementById('incrementBtn');
+          
+            incrementBtn.addEventListener('click', function () {
+              count++;
+              countDisplay.textContent = count;
+            });
+          });
+          
+      </script>
+    
+</body>
+</html>

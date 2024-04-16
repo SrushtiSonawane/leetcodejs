@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping</title>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        h1{
+            font-size: 40px;
+            font-weight: 200px;
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+          }
+          
+          .phones-row {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+          }
+          
+          .phone {
+            margin: 0 10px;
+          }
+          
+          .phone img {
+            width: 150px;
+            height: auto;
+          }
+          
+          
+          
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mobile Phones Catalog</h1>
+        <div id="phones"></div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var phonesData = [
+              {
+                name: 'Galaxy S21',
+                brand: 'Samsung',
+                price: '$899',
+                image: 'GalaxysS21.jpg'
+              },
+              {
+                name: ' Vivo X70',
+                brand: 'Vivo',
+                price: '$399',
+                image: 'vivox70.jpeg'
+              },
+              {
+                name: 'OnePlus 11r',
+                brand: 'OnePlus',
+                price: '$749',
+                image: 'oneplus11r.jpeg'
+              }
+            ];
+          
+            var phonesContainer = document.getElementById('phones');
+          
+            phonesData.forEach(function(phone) {
+              var phoneDiv = document.createElement('div');
+              phoneDiv.classList.add('phone');
+          
+              var img = document.createElement('img');
+              img.src = phone.image;
+              phoneDiv.appendChild(img);
+          
+              var h2 = document.createElement('h2');
+              h2.textContent = phone.name;
+              phoneDiv.appendChild(h2);
+          
+              var pBrand = document.createElement('p');
+              pBrand.textContent = 'Brand: ' + phone.brand;
+              phoneDiv.appendChild(pBrand);
+          
+              var pPrice = document.createElement('p');
+              pPrice.textContent = 'Price: ' + phone.price;
+              phoneDiv.appendChild(pPrice);
+          
+              phonesContainer.appendChild(phoneDiv);
+            });
+          });
+          
+          
+      </script>
+    
+</body>
+</html>
