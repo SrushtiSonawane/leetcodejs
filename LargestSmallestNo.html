@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Largest and Smallest Numbers</title>
+    <style>
+        body{
+            background-color: bisque;
+            margin-top: 15%;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            text-align: center;
+          }
+          
+          input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+          }
+          
+          button {
+            padding: 20px 40px;
+            margin-top: 18px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+          }
+          
+          button:hover {
+            background-color: forestgreen;
+          }
+          
+          #result {
+            margin-top: 20px;
+          }
+          
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Largest and Smallest Numbers Finder</h1>
+        <input type="text" id="numbersInput" placeholder="Enter numbers separated by commas">
+        <button onclick="findLargestAndSmallest()">Find Largest and Smallest</button>
+        <div id="result"></div>
+      </div>
+      <script>
+        function findLargestAndSmallest() {
+            var numbersInput = document.getElementById("numbersInput").value;
+            var numbersArray = numbersInput.split(",").map(Number); 
+            var largest = Math.max(...numbersArray);
+            var smallest = Math.min(...numbersArray);
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "<p>Largest Number: " + largest + "</p><p>Smallest Number: " + smallest + "</p>";
+          }
+          
+      </script>
+    
+    
+</body>
+</html>
