@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even Numbers Filter</title>
+    <style>
+        body{
+            background-color: bisque;
+            margin-top: 15%;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            text-align: center;
+          }
+          
+          input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+          }
+          
+          button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+          }
+          
+          button:hover {
+            background-color: forestgreen;
+          }
+          
+          #result {
+            margin-top: 20px;
+          }
+          
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Even Numbers Filter</h2>
+        <input type="text" id="numbersInput" placeholder="Enter numbers separated by commas">
+        <button onclick="filterEvenNumbers()">Filter Even Numbers</button>
+        <div id="result"></div>
+      </div>
+    <script>
+        function filterEvenNumbers() {
+            var numbersInput = document.getElementById("numbersInput").value;
+            var numbersArray = numbersInput.split(",").map(Number); 
+            var evenNumbers = numbersArray.filter(function(num) {
+              return num % 2 === 0;
+            });
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "<p>Even Numbers: " + evenNumbers.join(", ") + "</p>";
+          }
+          
+    </script>
+</body>
+</html>

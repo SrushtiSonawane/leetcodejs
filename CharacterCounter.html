@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Occurence in String</title>
+<style>
+    body{
+        background-color: bisque;
+        margin-top: 15%;
+    }
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        text-align: center;
+      }
+      
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+      }
+      
+      button {
+        font-size: 20px;
+        padding: 10px 20px;
+        margin-top: 10px;
+        background-color: blue;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      
+      button:hover {
+        background-color: forestgreen;
+      }
+      
+      #result {
+        margin-top: 20px;
+        text-align: left;
+      }
+      
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Character Occurrences in String</h1>
+        <input type="text" id="textInput" placeholder="Enter a string">
+        <button onclick="countOccurrences()">Count Occurrences</button>
+        <div id="result"></div>
+      </div>
+      <script>
+        function countOccurrences() {
+            var textInput = document.getElementById("textInput").value;
+            var charCount = {};
+            for (var i = 0; i < textInput.length; i++) {
+              var char = textInput.charAt(i);
+              if (charCount[char]) {
+                charCount[char]++;
+              } else {
+                charCount[char] = 1;
+              }
+            }
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "<h3>Character Occurrences:</h3>";
+            for (var char in charCount) {
+              resultDiv.innerHTML += "<p>" + char + ": " + charCount[char] + "</p>";
+            }
+          }
+          
+      </script>
+</body>
+</html>

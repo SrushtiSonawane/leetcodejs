@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Combination</title>
+    <style>
+        body{
+            background-color: bisque;
+            margin-top: 15%;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            text-align: center;
+          }
+          
+          input[type="text"] {
+            font-size: 15px;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+          }
+          
+          button {
+            font-size: 20px;
+            padding: 20px 40px;
+            margin-top: 18px;
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+          }
+          
+          button:hover {
+            background-color: forestgreen;
+          }
+          
+          #result {
+            margin-top: 20px;
+            text-align: left;
+          }
+          
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>String Combinations </h1>
+        <input type="text" id="stringInput" placeholder="Enter a string">
+        <button onclick="generateCombinations()">Generate Combinations</button>
+        <div id="result"></div>
+      </div>
+    <script>
+        function generateCombinations() {
+            var stringInput = document.getElementById("stringInput").value;
+            var combinations = [];
+            function generate(prefix, remaining) {
+              if (remaining.length === 0) {
+                combinations.push(prefix);
+                return;
+              }
+              for (var i = 0; i < remaining.length; i++) {
+                generate(prefix + remaining[i], remaining.slice(0, i) + remaining.slice(i + 1));
+              }
+            }
+          
+            generate('', stringInput);
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "<h3>String Combinations:</h3>";
+            combinations.forEach(function(combination) {
+              resultDiv.innerHTML += "<p>" + combination + "</p>";
+            });
+          }
+          
+    </script>
+</body>
+</html>
